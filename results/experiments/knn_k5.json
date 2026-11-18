@@ -1,0 +1,176 @@
+{
+  "name": "knn_k5",
+  "family": "instance_based",
+  "config": {
+    "n_neighbors": 5,
+    "weights": "distance",
+    "max_train_rows": 200000,
+    "n_jobs": -1
+  },
+  "seed": 42,
+  "max_train_rows": 200000,
+  "n_splits": 5,
+  "features": [
+    "dist_m",
+    "dist_rank",
+    "dist_minus_min",
+    "dist_ratio_to_min",
+    "n_candidates",
+    "t_frac",
+    "arc_len_m",
+    "heading_cos",
+    "heading_valid",
+    "speed_ms",
+    "motion_along_arc_m",
+    "ctx_dist_mean",
+    "ctx_dist_max",
+    "ctx_valid_count",
+    "start_in_degree",
+    "end_out_degree",
+    "has_reverse_arc",
+    "dist_to_start_m",
+    "dist_to_end_m"
+  ],
+  "cv_folds": [
+    {
+      "n_pairs": 596098,
+      "n_obs": 45706,
+      "macro_f1": 0.9043739733396492,
+      "log_loss": 0.3480359826593543,
+      "top1_accuracy": 0.8420119896731283,
+      "candidate_miss_rate": 0.005075920010501944,
+      "route_continuity": 0.936766765890387,
+      "truth_continuity": 0.9953162617640622,
+      "confusion_matrix": [
+        [
+          543711,
+          6913
+        ],
+        [
+          8841,
+          36633
+        ]
+      ],
+      "fold": 0,
+      "fit_seconds": 0.20033478736877441
+    },
+    {
+      "n_pairs": 592837,
+      "n_obs": 43523,
+      "macro_f1": 0.8938310685681926,
+      "log_loss": 0.3499216509799653,
+      "top1_accuracy": 0.8039657192748662,
+      "candidate_miss_rate": 0.01787560600142457,
+      "route_continuity": 0.9178231103709872,
+      "truth_continuity": 0.9952652385768135,
+      "confusion_matrix": [
+        [
+          543418,
+          6674
+        ],
+        [
+          9631,
+          33114
+        ]
+      ],
+      "fold": 1,
+      "fit_seconds": 0.19002676010131836
+    },
+    {
+      "n_pairs": 595956,
+      "n_obs": 35111,
+      "macro_f1": 0.9154795396827329,
+      "log_loss": 0.1699577616279255,
+      "top1_accuracy": 0.86915781379055,
+      "candidate_miss_rate": 0.0023069693258522816,
+      "route_continuity": 0.927443266050861,
+      "truth_continuity": 0.9911098447072233,
+      "confusion_matrix": [
+        [
+          556356,
+          4570
+        ],
+        [
+          6316,
+          28714
+        ]
+      ],
+      "fold": 2,
+      "fit_seconds": 0.1642444133758545
+    },
+    {
+      "n_pairs": 594359,
+      "n_obs": 30985,
+      "macro_f1": 0.8902500143227959,
+      "log_loss": 0.24477428857682207,
+      "top1_accuracy": 0.819138292722285,
+      "candidate_miss_rate": 0.002485073422623829,
+      "route_continuity": 0.8795554406823468,
+      "truth_continuity": 0.9844042621892154,
+      "confusion_matrix": [
+        [
+          558374,
+          5077
+        ],
+        [
+          7340,
+          23568
+        ]
+      ],
+      "fold": 3,
+      "fit_seconds": 0.20227551460266113
+    },
+    {
+      "n_pairs": 593535,
+      "n_obs": 27935,
+      "macro_f1": 0.8745180148020273,
+      "log_loss": 0.2413464301791258,
+      "top1_accuracy": 0.7890459996420262,
+      "candidate_miss_rate": 0.0008233398961875471,
+      "route_continuity": 0.8625743567691536,
+      "truth_continuity": 0.9860310183029478,
+      "confusion_matrix": [
+        [
+          560319,
+          5304
+        ],
+        [
+          7538,
+          20374
+        ]
+      ],
+      "fold": 4,
+      "fit_seconds": 0.18332409858703613
+    }
+  ],
+  "cv_macro_f1_mean": 0.8956905221430794,
+  "cv_macro_f1_std": 0.013771995497490934,
+  "cv_top1_mean": 0.824663963020571,
+  "cv_log_loss_mean": 0.2708072228046386,
+  "cv_route_continuity_mean": 0.9048325879527471,
+  "train_pair_macro_f1": 1.0,
+  "student_test": {
+    "n_pairs": 366311,
+    "n_obs": 19160,
+    "macro_f1": 0.9012243475620456,
+    "log_loss": 0.22695011896535275,
+    "top1_accuracy": 0.8338204592901879,
+    "candidate_miss_rate": 0.0008872651356993666,
+    "route_continuity": 0.9050130548302872,
+    "truth_continuity": 0.9899738903394256,
+    "confusion_matrix": [
+      [
+        343990,
+        3178
+      ],
+      [
+        3868,
+        15275
+      ]
+    ],
+    "fit_seconds": 0.11023139953613281,
+    "inference_seconds": 54.219565868377686,
+    "inference_ms_per_obs": 2.829831203986309
+  },
+  "run_at_utc": "2026-11-18T06:12:26+00:00"
+}

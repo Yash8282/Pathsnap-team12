@@ -1,0 +1,8 @@
+{
+  "hop_penalty": 1.0,
+  "break_penalty": 10.0,
+  "max_hops": 8,
+  "u_turn_penalty": 5.0,
+  "gap_seconds": 10.0,
+  "probability_floor": 1e-06
+}

@@ -1,0 +1,6 @@
+check,share_percent
+NaN values in any feature,0.0
+heading unreliable (heading_valid == 0),7.820108080469996
+no valid neighbour context (ctx_valid_count == 0),0.21582455508891493
+fewer than 4 valid context neighbours,3.4577677161315066
+observations with no candidate arc,0.169704245334501
