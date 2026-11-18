@@ -34,12 +34,3 @@ Setup steps are in `docs/PLAN.md`. Read the `src/pathsnap/evaluation.py` docstri
 ## Commit plan (suggested)
 `feat(models): add lightgbm experiment` -> `feat(models): add mlp experiment and history plot`
 -> `docs(models): add lightgbm and mlp notes`.
-
-## Also yours: evaluator UI (stage 10) - you are on a Mac, so this suits you
-* Branch `feat/ui`. Runs on Laptop 2 and talks to the API on Laptop 1 over the LAN (the API address must be
-  configurable, not hardcoded). Start against Atharva's stub API.
-* It shows the ten trip options, sends the chosen trip id to the API, and displays the returned route (Folium or a
-  Leaflet map), the observed GPS points, and the accuracy numbers returned by the API.
-* The UI must never read labels or compute accuracy itself; it only displays what the API returns.
-* Mac note: if LightGBM will not import, `brew install libomp`, or use the standby `hist_gradient_boosting`
-  script (`docs/STANDBY_MODELS.md`) and tell Shubhika so the report says what was actually run.

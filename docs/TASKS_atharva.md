@@ -35,11 +35,3 @@ Setup steps are in `docs/PLAN.md`. Then read `src/pathsnap/evaluation.py` (top d
 ## Commit plan (suggested)
 `feat(models): add logistic regression experiment` -> `feat(models): add knn experiment`
 -> `docs(models): add logreg and knn notes with results`.
-
-## Also yours: FastAPI backend (stage 9) and HMM testing (stage 8)
-* Branch `feat/api`. Build against a stub model first so it is not blocked on training: `GET /trips`,
-  `POST /predict/{trip_id}`; bind `0.0.0.0`, enable CORS, log every request (the evaluator will look at the log).
-* Ground-truth labels stay server side, never in the response. The API runs the full pipeline: candidates ->
-  features (`src/pathsnap/features.py`) -> classifier -> HMM, then scores itself against reference data.
-* Test all ten `student_test` trips through it as stand-ins for the evaluator trips.
-* When Shubhika's HMM lands, write tests for it (disconnected candidates, gaps, empty candidate sets).

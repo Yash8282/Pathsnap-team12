@@ -14,32 +14,15 @@ GPS point -> candidate arcs -> classifier scores each (point, arc) pair -> HMM/V
 | 2 | Reference labels + candidate generation | Shubhika | done |
 | 3 | Feature engineering + dataset build | Shubhika | done |
 | 4 | Shared evaluation harness | Shubhika | done (`src/pathsnap/evaluation.py`) |
-| 5a | Logistic Regression, KNN | Atharva | **to do** |
-| 5b | Random Forest, Extra Trees | Yashvantha | **to do** |
-| 5c | LightGBM, MLP | Tanish (Mac) | **to do** |
-| 5d | CPU standby models (HistGB, XGBoost, GaussianNB, Decision Tree) | whoever needs them | ready (`docs/STANDBY_MODELS.md`) |
-| 6 | Model comparison table + plots | Shubhika (Mac) | after 5 |
-| 7 | Bayesian optimisation (Optuna) of best model | **Yashvantha** (heaviest compute, non-Mac) with Tanish's search-space handover | after 6 |
-| 8 | HMM + Viterbi route reconstruction | Shubhika; Atharva reviews and tests | **decoder built and tested on branch `feat/hmm`** with a development stand-in classifier; must be re-run with the final chosen model's probabilities (`python scripts/05_tune_hmm.py --probs <model>`) |
-| 9 | FastAPI backend (Laptop 1) | Atharva | can start now with a stub model |
-| 10 | Evaluator UI (Laptop 2) | Tanish | can start now against the stub API |
+| 5 | Train 6 models (2 each) | Atharva, Yashvantha, Tanish | **to do** |
+| 6 | Model comparison table + plots | Shubhika | after 5 |
+| 7 | Bayesian optimisation (Optuna) of best model | Tanish (proposed) | after 6 |
+| 8 | HMM + Viterbi route reconstruction | Shubhika + Yashvantha (proposed) | after 6 (can start on OOF probabilities from any finished model) |
+| 9 | FastAPI backend | Atharva (proposed) | can start now with a stub model |
+| 10 | Evaluator UI (Laptop 2) | Yashvantha (proposed) | can start now against the stub API |
 | 11 | Folium maps, report PDF | everyone writes their own model sections; Shubhika assembles | last |
 
-Workload per person: Shubhika - pipeline, comparison, HMM, report assembly. Atharva - 2 light models, API, HMM tests.
-Yashvantha - 2 tree models, Bayesian tuning. Tanish - 2 models, UI.
-
-## Machines and compute
-
-* Nobody needs a GPU. All models are CPU (tabular, about 19 features, about 3M rows). See `docs/STANDBY_MODELS.md`.
-* **Shubhika and Tanish are on Macs**: install `libomp` (`brew install libomp`) for LightGBM/XGBoost, keep jobs
-  to one at a time, and use the `max_train_rows` caps in the task sheets (record any cap in `CONFIG`).
-* **The two non-Mac members take the heaviest compute**: Bayesian optimisation (many CV fits) goes to Yashvantha.
-  If Tanish's LightGBM or MLP run is too slow on a Mac, the same script can be run by a non-Mac member; the commit
-  should then be made by the person who ran it, and the notes file by the person who owns the model.
-* Standby models exist so a failed or too-slow primary does not block the first evaluation.
-
-
-Owners for stages 7-11 are proposals - change them freely, but write the real owner here.
+Owners for 7-11 are proposals – change them freely, but write the real owner here.
 
 ## Design decisions already made (and why) – keep consistent
 

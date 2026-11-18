@@ -30,13 +30,3 @@ Setup steps are in `docs/PLAN.md`. Read the `src/pathsnap/evaluation.py` docstri
 ## Commit plan (suggested)
 `feat(models): add random forest experiment` -> `feat(models): add extra trees experiment`
 -> `docs(models): add tree ensemble notes and feature importance plot`.
-
-## Also yours: Bayesian optimisation (stage 7)
-You are on a non-Mac machine, so you take the heaviest compute. Starts after Shubhika posts the comparison table
-and the best model is chosen. Tanish writes the suggested search space in `docs/model_notes/lightgbm.md`.
-* Branch `feat/bayesian-opt`, script `scripts/tune_bayesian.py`, Optuna TPE sampler with a fixed seed.
-* Objective: mean group-CV score over the train trips (same 5 GroupKFold as the harness); say which metric and why.
-* Save every trial to `results/optuna_trials.csv` and the best parameters to `results/best_params.json`.
-* Cap trials and rows up front and print the expected run scale before starting. Record total compute time.
-* Refit with the best parameters via `run_experiment` under a new name (e.g. `lightgbm_tuned`) so the tuned vs
-  untuned comparison uses identical metrics and partitions.
